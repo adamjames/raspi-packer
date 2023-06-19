@@ -79,6 +79,12 @@ jobs:
       shell: bash
       run: |
         sudo ./build-bsdtar.sh $LIBARCHIVE_VERSION
+      
+    - name: apt update
+      shell: bash
+      run: |
+        sudo apt-get update
+        
     - name: install deps
       shell: bash
       run: |

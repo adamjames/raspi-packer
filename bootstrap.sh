@@ -23,12 +23,11 @@ env
 
 # First boot install step: https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
 pacman-key --init
-pacman-key --populate archlinuxarm
+pacman-key --populate archlinuxarm 2> /dev/null
 
 # Fix pacman-keyring for borked maintainer keys
-pacman -Sy pacman-keyring 
-pacman-key --init
-pacman-key --populate archlinuxarm
+pacman -Sy pacman-keyring 2> /dev/null
+pacman-key --populate archlinuxarm 2> /dev/null
 
 # Enable ntp
 # Turns out this is on by default now

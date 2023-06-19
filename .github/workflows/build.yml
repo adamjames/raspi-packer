@@ -15,18 +15,20 @@ jobs:
     strategy:
       matrix:
         host:
-        - path: ./hosts/raspi4/aarch64.json
-          imgName: raspberry-pi4-aarch64.img
-        - path: ./hosts/raspi4/aarch64-debug.json
-          imgName: raspberry-pi4-aarch64-debug.img
-        - path: ./hosts/raspi4/aarch64-cm4.json
-          imgName: raspberry-pi4-aarch64-cm4.img
-        - path: ./hosts/raspi4/aarch64-cm4-debug.json
-          imgName: raspberry-pi4-aarch64-cm4-debug.img
-        - path: ./hosts/raspi4/armv7.json
-          imgName: raspberry-pi4-armv7.img
-        - path: ./hosts/raspi4/armv7-debug.json
-          imgName: raspberry-pi4-armv7-debug.img
+        - path: ./hosts/raspi3/armv7.json
+          imgName: raspberry-pi3-armv7.img
+        #- path: ./hosts/raspi4/aarch64.json
+        #  imgName: raspberry-pi4-aarch64.img
+        #- path: ./hosts/raspi4/aarch64-debug.json
+        #  imgName: raspberry-pi4-aarch64-debug.img
+        #- path: ./hosts/raspi4/aarch64-cm4.json
+        #  imgName: raspberry-pi4-aarch64-cm4.img
+        #- path: ./hosts/raspi4/aarch64-cm4-debug.json
+        #  imgName: raspberry-pi4-aarch64-cm4-debug.img
+        #- path: ./hosts/raspi4/armv7.json
+        #  imgName: raspberry-pi4-armv7.img
+        #- path: ./hosts/raspi4/armv7-debug.json
+        #  imgName: raspberry-pi4-armv7-debug.img
         #- path: ./hosts/raspi3/aarch64.json
         #  imgName: raspberry-pi3.img
         #- path: ./hosts/raspi4/ace.json
@@ -77,6 +79,12 @@ jobs:
       shell: bash
       run: |
         sudo ./build-bsdtar.sh $LIBARCHIVE_VERSION
+      
+    - name: apt update
+      shell: bash
+      run: |
+        sudo apt-get update
+        
     - name: install deps
       shell: bash
       run: |

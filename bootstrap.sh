@@ -19,15 +19,11 @@ lockdown_root="${LOCKDOWN_ROOT}"
 # Doesn't seem to do much
 source /etc/profile
 # Debug info
-env
+#env
 
 # First boot install step: https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
-pacman-key --init
-pacman-key --populate archlinuxarm
-
-# Enable ntp
-# Turns out this is on by default now
-#timedatectl set-ntp true
+pacman-key --init &> /dev/null
+pacman-key --populate archlinuxarm &> /dev/null
 
 # Enable network connection
 if [[ -L /etc/resolv.conf ]]; then
@@ -42,10 +38,10 @@ if [ "$pi4_bootloader" = "true" ] ; then
 fi
 
 # Set up localization https://wiki.archlinux.org/index.php/Installation_guide#Localization
-sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
+sed -i 's/#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/g' /etc/locale.gen
 locale-gen
-echo 'LANG=en_US.UTF-8' > /etc/locale.conf
-echo 'LC_ALL=en_US.UTF-8' >> /etc/locale.conf
+echo 'LANG=en_GB.UTF-8' > /etc/locale.conf
+echo 'LC_ALL=en_GB.UTF-8' >> /etc/locale.conf
 
 # Etckeeper init
 pacman -S git etckeeper glibc --noconfirm --needed
@@ -133,8 +129,8 @@ else
 fi
 
 # copy the throttle script
-mv /tmp/throttle.sh "/home/${username}/throttle.sh"
-chmod +x "/home/${username}/throttle.sh"
+#mv /tmp/throttle.sh "/home/${username}/throttle.sh"
+#chmod +x "/home/${username}/throttle.sh"
 
 # Setup user ssh keys
 mkdir /home/"${username}"/.ssh
@@ -146,7 +142,7 @@ chmod 700 "/home/${username}/.ssh"
 chmod 600 "/home/${username}/.ssh/authorized_keys"
 
 # Set up no-password sudo
-echo '%wheel ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/wheel
+#echo '%wheel ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/wheel
 
 if [ "$pi4_alt_fstab" = "true" ] ; then
   echo 'setting up pi4 fstab'

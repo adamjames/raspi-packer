@@ -19,14 +19,14 @@ lockdown_root="${LOCKDOWN_ROOT}"
 # Doesn't seem to do much
 source /etc/profile
 # Debug info
-env
+#env
 
 # First boot install step: https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
-pacman-key --init
+pacman-key --init 2> /dev/null
 pacman-key --populate archlinuxarm 2> /dev/null
 
 # Fix pacman-keyring for borked maintainer keys
-pacman -Sy pacman-keyring 2> /dev/null
+pacman -Syy pacman-keyring 2> /dev/null
 pacman-key --populate archlinuxarm 2> /dev/null
 
 # Enable ntp

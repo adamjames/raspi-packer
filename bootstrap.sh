@@ -138,8 +138,8 @@ else
 fi
 
 # copy the throttle script
-mv /tmp/throttle.sh "/home/${username}/throttle.sh"
-chmod +x "/home/${username}/throttle.sh"
+#mv /tmp/throttle.sh "/home/${username}/throttle.sh"
+#chmod +x "/home/${username}/throttle.sh"
 
 # Setup user ssh keys
 mkdir /home/"${username}"/.ssh
@@ -151,7 +151,7 @@ chmod 700 "/home/${username}/.ssh"
 chmod 600 "/home/${username}/.ssh/authorized_keys"
 
 # Set up no-password sudo
-echo '%wheel ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/wheel
+#echo '%wheel ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/wheel
 
 if [ "$pi4_alt_fstab" = "true" ] ; then
   echo 'setting up pi4 fstab'

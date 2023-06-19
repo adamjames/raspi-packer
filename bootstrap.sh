@@ -25,6 +25,11 @@ env
 pacman-key --init
 pacman-key --populate archlinuxarm
 
+# Fix pacman-keyring for borked maintainer keys
+pacman -Sy pacman-keyring 
+pacman-key --init
+pacman-key --populate archlinuxarm
+
 # Enable ntp
 # Turns out this is on by default now
 #timedatectl set-ntp true

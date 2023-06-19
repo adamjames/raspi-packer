@@ -46,10 +46,10 @@ if [ "$pi4_bootloader" = "true" ] ; then
 fi
 
 # Set up localization https://wiki.archlinux.org/index.php/Installation_guide#Localization
-sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
+sed -i 's/#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/g' /etc/locale.gen
 locale-gen
-echo 'LANG=en_US.UTF-8' > /etc/locale.conf
-echo 'LC_ALL=en_US.UTF-8' >> /etc/locale.conf
+echo 'LANG=en_GB.UTF-8' > /etc/locale.conf
+echo 'LC_ALL=en_GB.UTF-8' >> /etc/locale.conf
 
 # Etckeeper init
 pacman -S git etckeeper glibc --noconfirm --needed

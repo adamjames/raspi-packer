@@ -1,10 +1,11 @@
 {
-    "hostname": "alarm-rpi-aarch64",
+    "hostname": "alarm-rpi4-aarch64",
     "size": "4G",
+    "file_unarchive_flags": "-xzf",
     "img_url": "http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz",
-    "img_name": "raspberry-pi4-aarch64.img",
+    "img_name": "alarm-rpi4-aarch64.img",
     "qemu_binary": "/usr/bin/qemu-aarch64-static",
-    "pi4_alt_fstab": "true",
-    "lockdown_root": "true",
-    "pi4_bootloader": "false"
+    "use_microboot": "true",
+    "pi4_alt_fstab": "false",
+    "lock_root_account": "true"
 }

@@ -1,8 +1,8 @@
 {
-    "hostname": "alarm-rpi3-armv7",
+    "hostname": "arrpi",
     "size": "4G",
     "img_url": "http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-armv7-latest.tar.gz",
-    "img_name": "alarm-rpi3-armv7.img",
+    "img_name": "alarm-rpi3-armv7-arrpi.img",
     "qemu_binary": "/usr/bin/qemu-arm-static",
     "lock_root_account": "true"
 }

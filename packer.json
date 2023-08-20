@@ -1,20 +1,22 @@
 {
   "variables": {
     "hostname": "alarm",
+    "enable_mac_hostname": "false",
     "username": "adam",
+    "lock_root_account": "false",
     "github_keys": "https://github.com/adamjames.keys",
     "git_user_email": "adam@adamjames.me",
     "git_user_name": "adamjames",
-    "size": "8G",
-    "img_url": "http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz",
+    "size": "4G",
+    "img_url": "http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-latest.tar.gz",
     "file_unarchive_bin": "bsdtar",
     "file_unarchive_flags": "-xpf",
-    "img_name": "raspberry-pi3.img",
+    "img_name": "rpi.img",
     "qemu_binary": "/usr/bin/qemu-arm7-static",
+    "use_microboot": "false",
     "pi4_alt_fstab": "false",
-    "lockdown_root": "false",
-    "pi4_bootloader": "false",
-    "cm4_usb": "false"
+    "cm4_usb": "false",
+    "enable_mac_hostname": "false"
   },
   "builders": [{
     "type": "arm",
@@ -84,9 +86,10 @@
         "GIT_USER_NAME={{user `git_user_name`}}",
         "GIT_USER_EMAIL={{user `git_user_email`}}",
         "PI4_ALT_FSTAB={{user `pi4_alt_fstab`}}",
-        "LOCKDOWN_ROOT={{user `lockdown_root`}}",
-        "PI4_BOOTLOADER={{user `pi4_bootloader`}}",
-        "CM4_USB={{user `cm4_usb`}}"
+        "LOCK_ROOT_ACCOUNT={{user `lock_root_account`}}",
+        "USE_MICROBOOT={{user `use_microboot`}}",
+        "CM4_USB={{user `cm4_usb`}}",
+        "ENABLE_MAC_HOSTNAME={{user  `enable_mac_hostname`}}"
       ]
     }
   ]

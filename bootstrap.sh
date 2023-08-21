@@ -29,7 +29,7 @@ source /etc/profile
 
 # First boot install step: https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
 pacman-key --init &> /dev/null
-pacman-key --populate archlinuxarm &> /dev/null
+pacman-key --populate archlinuxarm 2>&1
 
 # Enable network connection
 if [[ -L /etc/resolv.conf ]]; then
@@ -39,18 +39,17 @@ echo 'nameserver 8.8.8.8' > /etc/resolv.conf;
 
 if [[ "$silent_systemd_upgrade" ]] ; then
   echo 'systemd upgrade workaround requested...'
-  # Upgrade everything but systemd
-  pacman -Syu --noconfirm --needed --ignore=systemd
-  # Silently upgrade systemd, suppress output to stderr
-  pacman -Syu --noconfirm --needed systemd &> /dev/null
+  # The systemd upgrade prints warnings to stderr, crashing the build.
+  pacman -Syu --noconfirm --needed --ignore=systemd 2>&1
+  pacman -Syu --noconfirm --needed systemd 2>&1
 else
   pacman -Syu --noconfirm --needed
 fi
 
 if [ "$use_microboot" = "false" ] ; then
   echo 'Microboot support not requested, installing Pi kernel/firmware/bootloader...'
-  pacman -R linux-aarch64 uboot-raspberrypi --noconfirm &> /dev/null
-  pacman -S linux-rpi raspberrypi-bootloader firmware-raspberrypi raspberrypi-firmware --noconfirm --needed &> /dev/null
+  pacman -R linux-aarch64 uboot-raspberrypi --noconfirm 2>&1
+  pacman -S linux-rpi raspberrypi-bootloader firmware-raspberrypi raspberrypi-firmware --noconfirm --needed 2>&1
 else
   echo 'Microboot support was requested.'
   echo 'linux-aarch64 & uboot-raspberrypi are provided by default. Continuing...'
@@ -62,7 +61,7 @@ echo 'LANG=en_GB.UTF-8' > /etc/locale.conf
 echo 'LC_ALL=en_GB.UTF-8' >> /etc/locale.conf
 
 # Etckeeper init
-pacman -S git etckeeper glibc --noconfirm --needed
+pacman -S git etckeeper glibc --noconfirm --needed 2>&1
 
 export HOME=/root
 git config --global user.email "${git_user_email}"
@@ -97,7 +96,7 @@ fi
 echo "${hostname}" > /etc/hostname
 
 # Install stuff
-pacman -S vim htop parted sudo --noconfirm --needed
+pacman -S vim sudo --noconfirm --needed 2>&1
 
 # Sometimes the network file is missing for some unknown reason
 if [ ! -f "/etc/systemd/network/en.network" ] ; then
@@ -181,7 +180,7 @@ fi
 
 if [ "$install_paru" = "true" ] ; then
   echo "Building and installing Paru..."
-  sudo pacman -Sy --needed base-devel --noconfirm &> /dev/null
+  sudo pacman -Sy --needed base-devel --noconfirm 2>&1
   git clone https://aur.archlinux.org/paru.git
   cd paru
   makepkg -sic
@@ -189,7 +188,7 @@ fi
 
 if [ "$install_paru" = "true" ] && [ -n "$paru_packages" ] ; then
   echo "Installing additional packages..."
-  paru -Sy "${paru_packages}" --noconfirm &> /dev/null
+  paru -Sy "${paru_packages}" --noconfirm 2>&1
 fi
 
 # restore original resolve.conf

@@ -15,24 +15,24 @@ jobs:
     strategy:
       matrix:
         host:
-        - path: ./hosts/raspi3/armv7.json
-          imgName: alarm-rpi3-armv7.img
+        #- path: ./hosts/raspi3/armv7.json
+        #  imgName: alarm-rpi3-armv7.img
         - path: ./hosts/raspi3/armv7-arrpi.json
           imgName: alarm-rpi3-armv7-arrpi.img
-        - path: ./hosts/raspi3/aarch64.json
-          imgName: alarm-rpi3-aarch64.img
-        - path: ./hosts/raspi4/aarch64.json
-          imgName: alarm-rpi4-aarch64.img
-        - path: ./hosts/raspi4/aarch64-debug.json
-          imgName: alarm-rpi4-aarch64-debug.img
-        - path: ./hosts/raspi4/aarch64-cm4.json
-          imgName: alarm-rpi4-aarch64-cm4.img
-        - path: ./hosts/raspi4/aarch64-cm4-debug.json
-          imgName: alarm-rpi4-aarch64-cm4-debug.img
-        - path: ./hosts/raspi4/armv7.json
-          imgName: alarm-rpi4-armv7.img
-        - path: ./hosts/raspi4/armv7-debug.json
-          imgName: alarm-rpi4-armv7-debug.img
+        #- path: ./hosts/raspi3/aarch64.json
+        #  imgname: alarm-rpi3-aarch64.img
+        #- path: ./hosts/raspi4/aarch64.json
+        #  imgname: alarm-rpi4-aarch64.img
+        #- path: ./hosts/raspi4/aarch64-debug.json
+        #  imgname: alarm-rpi4-aarch64-debug.img
+        #- path: ./hosts/raspi4/aarch64-cm4.json
+        #  imgname: alarm-rpi4-aarch64-cm4.img
+        #- path: ./hosts/raspi4/aarch64-cm4-debug.json
+        #  imgname: alarm-rpi4-aarch64-cm4-debug.img
+        #- path: ./hosts/raspi4/armv7.json
+        #  imgname: alarm-rpi4-armv7.img
+        #- path: ./hosts/raspi4/armv7-debug.json
+        #  imgname: alarm-rpi4-armv7-debug.img
 
 
 

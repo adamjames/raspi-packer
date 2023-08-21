@@ -1,7 +1,6 @@
 {
   "variables": {
     "hostname": "alarm",
-    "enable_mac_hostname": "false",
     "username": "adam",
     "lock_root_account": "false",
     "github_keys": "https://github.com/adamjames.keys",
@@ -16,7 +15,9 @@
     "use_microboot": "false",
     "pi4_alt_fstab": "false",
     "cm4_usb": "false",
-    "enable_mac_hostname": "false"
+    "enable_mac_hostname": "false",
+    "install_paru": "false",
+    "paru_packages": ""
   },
   "builders": [{
     "type": "arm",
@@ -89,7 +90,8 @@
         "LOCK_ROOT_ACCOUNT={{user `lock_root_account`}}",
         "USE_MICROBOOT={{user `use_microboot`}}",
         "CM4_USB={{user `cm4_usb`}}",
-        "ENABLE_MAC_HOSTNAME={{user  `enable_mac_hostname`}}"
+        "ENABLE_MAC_HOSTNAME={{user  `enable_mac_hostname`}}",
+        "INSTALL_PARU={{user `install_paru`}}"
       ]
     }
   ]

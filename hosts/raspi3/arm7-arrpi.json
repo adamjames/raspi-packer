@@ -4,5 +4,7 @@
     "img_url": "http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-armv7-latest.tar.gz",
     "img_name": "alarm-rpi3-armv7-arrpi.img",
     "qemu_binary": "/usr/bin/qemu-arm-static",
-    "lock_root_account": "true"
+    "lock_root_account": "true",
+    "install_paru": "true",
+    "paru_packages": ""
 }

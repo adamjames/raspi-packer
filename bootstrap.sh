@@ -15,6 +15,8 @@ use_microboot="${USE_MICROBOOT}"
 cm4_usb="${CM4_USB}"
 lock_root_account="${LOCK_ROOT_ACCOUNT}"
 enable_mac_hostname="${ENABLE_MAC_HOSTNAME}"
+install_paru="${INSTALL_PARU}"
+paru_packages="${PARU_PACKAGES}"
 
 # Recomended in https://wiki.archlinux.org/index.php/Chroot#Using_chroot
 # Doesn't seem to do much
@@ -164,6 +166,19 @@ if [ "$cm4_usb" = "true" ] ; then
   echo '' >> /boot/config.txt
   echo '[cm4]' >> /boot/config.txt
   echo 'dtoverlay=dwc2,dr_mode=host' >> /boot/config.txt
+fi
+
+if [ "$install_paru" = "true" ] ; then
+  echo "Building and installing Paru..."
+  sudo pacman -Sy --needed base-devel --noconfirm
+  git clone https://aur.archlinux.org/paru.git
+  cd paru
+  makepkg -sic
+fi
+
+if [ "$install_paru" = "true" ] && [ -z "$paru_packages" ] ; then
+  echo "Installing additional packages..."
+  paru -Sy "${paru_packages}" --noconfirm
 fi
 
 # restore original resolve.conf

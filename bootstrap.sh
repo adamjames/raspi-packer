@@ -40,18 +40,19 @@ echo 'nameserver 8.8.8.8' > /etc/resolv.conf;
 if [[ "$silent_systemd_upgrade" = "true" ]] ; then
   echo 'systemd upgrade workaround requested...'
   # The systemd upgrade prints warnings to stderr, crashing the build.
-  pacman -Syu --noconfirm --needed --ignore="systemd systemd-libs" 2>&1
-  pacman -Syu --noconfirm --needed 2>&1
+  pacman -Syu --needed --ignore="systemd systemd-libs" 2>&1
+  pacman -S --needed 2>&1
 else
   pacman -Syu --noconfirm --needed 2>&1
 fi
 
 if [ "$use_microboot" = "false" ] ; then
   echo 'Microboot support not requested, installing Pi kernel/firmware/bootloader...'
-  pacman -R linux-aarch64 uboot-raspberrypi --noconfirm 2>&1
   pacman -S linux-rpi raspberrypi-bootloader firmware-raspberrypi raspberrypi-firmware --noconfirm --needed 2>&1
 else
   echo 'Microboot support was requested.'
+  pacman -S linux-aarch64 uboot-raspberrypi --noconfirm 2>&1
+
   echo 'linux-aarch64 & uboot-raspberrypi are provided by default. Continuing...'
 fi
 

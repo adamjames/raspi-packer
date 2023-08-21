@@ -93,7 +93,8 @@
         "USE_MICROBOOT={{user `use_microboot`}}",
         "CM4_USB={{user `cm4_usb`}}",
         "ENABLE_MAC_HOSTNAME={{user  `enable_mac_hostname`}}",
-        "INSTALL_PARU={{user `install_paru`}}"
+        "INSTALL_PARU={{user `install_paru`}}",
+        "PARU_PACKAGES={{user `paru_packages`}}"
       ]
     }
   ]

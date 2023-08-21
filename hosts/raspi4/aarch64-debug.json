@@ -4,7 +4,6 @@
     "img_url": "http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz",
     "img_name": "alarm-rpi4-aarch64-debug.img",
     "qemu_binary": "/usr/bin/qemu-aarch64-static",
-    "file_unarchive_flags": "-xzvf",
     "use_microboot": "true",
     "pi4_alt_fstab": "false",
     "lock_root_account": "false"

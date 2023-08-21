@@ -40,8 +40,8 @@ echo 'nameserver 8.8.8.8' > /etc/resolv.conf;
 if [[ "$silent_systemd_upgrade" ]] ; then
   echo 'systemd upgrade workaround requested...'
   # The systemd upgrade prints warnings to stderr, crashing the build.
-  pacman -Syu --noconfirm --needed --ignore=systemd 2>&1
-  pacman -Syu --noconfirm --needed systemd 2>&1
+  pacman -Syu --noconfirm --needed --ignore="systemd systemd-libs" 2>&1
+  pacman -Syu --noconfirm --needed 2>&1
 else
   pacman -Syu --noconfirm --needed
 fi

@@ -178,7 +178,7 @@ fi
 
 if [ "$install_paru" = "true" ] && [ -z "$paru_packages" ] ; then
   echo "Installing additional packages..."
-  paru -Sy "${paru_packages}" --noconfirm
+  paru -Sy "${paru_packages}" --noconfirm &> /dev/null
 fi
 
 # restore original resolve.conf

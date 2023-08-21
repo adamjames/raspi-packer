@@ -53,6 +53,7 @@ if [ "$use_microboot" = "false" ] ; then
 else
   echo 'Microboot support was requested.'
   echo 'linux-aarch64 & uboot-raspberrypi are provided by default. Continuing...'
+fi
 
 # Set up localization https://wiki.archlinux.org/index.php/Installation_guide#Localization
 sed -i 's/#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/g' /etc/locale.gen

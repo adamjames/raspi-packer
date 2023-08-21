@@ -2,7 +2,8 @@
   "variables": {
     "hostname": "alarm",
     "username": "adam",
-    "lock_root_account": "false",
+    "lock_root_account": "true",
+    "remove_builtin_user": "true",
     "github_keys": "https://github.com/adamjames.keys",
     "git_user_email": "adam@adamjames.me",
     "git_user_name": "adamjames",
@@ -87,6 +88,7 @@
         "GIT_USER_NAME={{user `git_user_name`}}",
         "GIT_USER_EMAIL={{user `git_user_email`}}",
         "PI4_ALT_FSTAB={{user `pi4_alt_fstab`}}",
+        "REMOVE_BUILTIN_USER={{user `remove_builtin_user`}}",
         "LOCK_ROOT_ACCOUNT={{user `lock_root_account`}}",
         "USE_MICROBOOT={{user `use_microboot`}}",
         "CM4_USB={{user `cm4_usb`}}",

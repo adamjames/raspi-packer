@@ -10,6 +10,7 @@ username="${USERNAME}"
 github_keys="${GITHUB_KEYS}"
 git_user_name="${GIT_USER_NAME}"
 git_user_email="${GIT_USER_EMAIL}"
+remove_builtin_user="${REMOVE_BUILTIN_USER}"
 pi4_alt_fstab="${PI4_ALT_FSTAB}"
 use_microboot="${USE_MICROBOOT}"
 cm4_usb="${CM4_USB}"
@@ -135,7 +136,7 @@ chmod 700 "/home/${username}/.ssh"
 chmod 600 "/home/${username}/.ssh/authorized_keys"
 
 
-if [ "$remove_alarm" = "true" ] ; then
+if [ "$remove_builtin_user" = "true" ] ; then
   userdel -r alarm
 else
   # Add alarm to wheel so that it can use sudo

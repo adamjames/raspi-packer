@@ -6,5 +6,6 @@
     "qemu_binary": "/usr/bin/qemu-aarch64-static",
     "use_microboot": "true",
     "pi4_alt_fstab": "false",
+    "use_microboot": "true",
     "lock_root_account": "false"
 }

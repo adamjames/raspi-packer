@@ -5,6 +5,7 @@
     "img_name": "alarm-rpi3-armv7.img",
     "file_unarchive_bin": "tar",
     "file_unarchive_flags": "-zxvf",
-    "qemu_binary": "/usr/bin/qemu-arm-static"
+    "qemu_binary": "/usr/bin/qemu-arm-static",
+    "use_microboot": "false"
 
 }

@@ -38,8 +38,8 @@ pacman -Syyu --noconfirm --needed
 
 if [ "$use_microboot" = "false" ] ; then
   echo 'Microboot support not requested, installing Pi kernel/firmware/bootloader...'
-  pacman -R linux-aarch64 uboot-raspberrypi --noconfirm
-  pacman -S linux-rpi raspberrypi-bootloader firmware-raspberrypi raspberrypi-firmware --noconfirm --needed
+  pacman -R linux-aarch64 uboot-raspberrypi --noconfirm &> /dev/null
+  pacman -S linux-rpi raspberrypi-bootloader firmware-raspberrypi raspberrypi-firmware --noconfirm --needed &> /dev/null
 else
   echo 'Microboot support was requested.'
   echo 'linux-aarch64 & uboot-raspberrypi are provided by default. Continuing...'
@@ -117,8 +117,7 @@ systemctl enable systemd-resolved.service
 sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 systemctl restart sshd
 
-# enable color on
-# pacman
+# enable color in pacman
 sed -i 's/#Color/Color/g' /etc/pacman.conf
 
 # create user
@@ -171,7 +170,7 @@ fi
 
 if [ "$install_paru" = "true" ] ; then
   echo "Building and installing Paru..."
-  sudo pacman -Sy --needed base-devel --noconfirm
+  sudo pacman -Sy --needed base-devel --noconfirm &> /dev/null
   git clone https://aur.archlinux.org/paru.git
   cd paru
   makepkg -sic

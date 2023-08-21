@@ -43,7 +43,7 @@ if [[ "$silent_systemd_upgrade" ]] ; then
   pacman -Syu --noconfirm --needed --ignore=systemd
   # Silently upgrade systemd, suppress output to stderr
   pacman -Syu --noconfirm --needed systemd &> /dev/null
-else 
+else
   pacman -Syu --noconfirm --needed
 fi
 
@@ -187,7 +187,7 @@ if [ "$install_paru" = "true" ] ; then
   makepkg -sic
 fi
 
-if [ "$install_paru" = "true" ] && [ -z "$paru_packages" ] ; then
+if [ "$install_paru" = "true" ] && [ -n "$paru_packages" ] ; then
   echo "Installing additional packages..."
   paru -Sy "${paru_packages}" --noconfirm &> /dev/null
 fi

@@ -18,7 +18,8 @@
     "cm4_usb": "false",
     "enable_mac_hostname": "false",
     "install_paru": "false",
-    "paru_packages": ""
+    "paru_packages": "",
+    "silent_systemd_upgrade": "true"
   },
   "builders": [{
     "type": "arm",
@@ -94,7 +95,8 @@
         "CM4_USB={{user `cm4_usb`}}",
         "ENABLE_MAC_HOSTNAME={{user  `enable_mac_hostname`}}",
         "INSTALL_PARU={{user `install_paru`}}",
-        "PARU_PACKAGES={{user `paru_packages`}}"
+        "PARU_PACKAGES={{user `paru_packages`}}",
+        "SILENT_SYSTEMD_UPGRADE={{user `silent_systemd_upgrade`}}"
       ]
     }
   ]

@@ -18,6 +18,8 @@ lock_root_account="${LOCK_ROOT_ACCOUNT}"
 enable_mac_hostname="${ENABLE_MAC_HOSTNAME}"
 install_paru="${INSTALL_PARU}"
 paru_packages="${PARU_PACKAGES}"
+silent_systemd_upgrade="${SILENT_SYSTEMD_UPGRADE}"
+
 
 # Recomended in https://wiki.archlinux.org/index.php/Chroot#Using_chroot
 # Doesn't seem to do much
@@ -34,7 +36,16 @@ if [[ -L /etc/resolv.conf ]]; then
   mv /etc/resolv.conf /etc/resolv.conf.bk;
 fi
 echo 'nameserver 8.8.8.8' > /etc/resolv.conf;
-pacman -Syyu --noconfirm --needed
+
+if [[ "$silent_systemd_upgrade" ]] ; then
+  echo 'systemd upgrade workaround requested...'
+  # Upgrade everything but systemd
+  pacman -Syu --noconfirm --needed --ignore=systemd
+  # Silently upgrade systemd, suppress output to stderr
+  pacman -Syu --noconfirm --needed systemd &> /dev/null
+else 
+  pacman -Syu --noconfirm --needed
+fi
 
 if [ "$use_microboot" = "false" ] ; then
   echo 'Microboot support not requested, installing Pi kernel/firmware/bootloader...'

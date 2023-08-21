@@ -7,5 +7,7 @@
     "qemu_binary": "/usr/bin/qemu-aarch64-static",
     "lock_root_account": "true",
     "use_microboot": "true",
-    "pi4_alt_fstab": "false"
+    "pi4_alt_fstab": "false",
+    "install_paru": "false",
+    "paru_packages": ""
 }

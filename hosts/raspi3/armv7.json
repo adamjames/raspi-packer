@@ -6,6 +6,8 @@
     "file_unarchive_bin": "tar",
     "file_unarchive_flags": "-zxvf",
     "qemu_binary": "/usr/bin/qemu-arm-static",
-    "use_microboot": "false"
+    "use_microboot": "false",
+    "install_paru": "true",
+    "paru_packages": ""
 
 }

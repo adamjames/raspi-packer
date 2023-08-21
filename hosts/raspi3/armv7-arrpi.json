@@ -9,5 +9,6 @@
     "file_unarchive_flags": "-zxvf",
     "remove_builtin_user": "true",
     "lock_root_account": "true",
-    "install_paru": "true"
+    "install_paru": "true",
+    "paru_packages": ""
 }

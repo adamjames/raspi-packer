@@ -6,5 +6,8 @@
     "img_name": "alarm-rpi4-aarch64.img",
     "qemu_binary": "/usr/bin/qemu-aarch64-static",
     "use_microboot": "true",
-    "pi4_alt_fstab": "false"
+    "pi4_alt_fstab": "false",
+    "lock_root_account": "true",
+    "install_paru": "true",
+    "paru_packages": ""
 }

@@ -7,5 +7,7 @@
     "use_microboot": "true",
     "pi4_alt_fstab": "false",
     "use_microboot": "true",
-    "lock_root_account": "false"
+    "lock_root_account": "false",
+    "install_paru": "false",
+    "paru_packages": ""
 }

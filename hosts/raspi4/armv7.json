@@ -6,5 +6,7 @@
     "img_name": "alarm-rpi4-armv7.img",
     "file_unarchive_bin": "tar",
     "file_unarchive_flags": "-zxvf",
-    "use_microboot": "false"
+    "use_microboot": "false",
+    "install_paru": "true",
+    "paru_packages": ""
 }

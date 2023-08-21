@@ -4,5 +4,7 @@
     "img_url": "http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz",
     "img_name": "alarm-rpi3-aarch64.img",
     "qemu_binary": "/usr/bin/qemu-aarch64-static",
-    "use_microboot": "true"
+    "use_microboot": "true",
+    "install_paru": "true",
+    "paru_packages": ""
 }

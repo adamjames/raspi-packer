@@ -37,13 +37,13 @@ if [[ -L /etc/resolv.conf ]]; then
 fi
 echo 'nameserver 8.8.8.8' > /etc/resolv.conf;
 
-if [[ "$silent_systemd_upgrade" ]] ; then
+if [[ "$silent_systemd_upgrade" = "true" ]] ; then
   echo 'systemd upgrade workaround requested...'
   # The systemd upgrade prints warnings to stderr, crashing the build.
   pacman -Syu --noconfirm --needed --ignore="systemd systemd-libs" 2>&1
   pacman -Syu --noconfirm --needed 2>&1
 else
-  pacman -Syu --noconfirm --needed
+  pacman -Syu --noconfirm --needed 2>&1
 fi
 
 if [ "$use_microboot" = "false" ] ; then
